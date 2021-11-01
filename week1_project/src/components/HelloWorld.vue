@@ -95,9 +95,11 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss">
+// @import "~@/assets/scss/style.scss";
 h1, h2 {
   font-weight: normal;
+  color:$color-light-grey;
 }
 ul {
   list-style-type: none;

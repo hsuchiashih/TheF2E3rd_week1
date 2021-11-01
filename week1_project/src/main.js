@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 
+//引入Scss檔案
+import "@/assets/scss/style.scss";
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
