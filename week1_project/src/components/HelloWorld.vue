@@ -1,5 +1,8 @@
 <template>
   <div class="hello">
+    <div class="alert alert-primary" role="alert">
+  A simple primary alert—check it out!
+</div>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -99,7 +102,7 @@ export default {
 // @import "~@/assets/scss/style.scss";
 h1, h2 {
   font-weight: normal;
-  color:$color-light-grey;
+  // color:$color-light-grey;
 }
 ul {
   list-style-type: none;

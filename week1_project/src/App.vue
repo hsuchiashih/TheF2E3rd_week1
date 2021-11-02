@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <HelloWorld/>
+    <div class="row">
+      <div class="col-12 text-danger">
+        <HelloWorld/>
+      </div>
+    </div>
   </div>
 </template>
 

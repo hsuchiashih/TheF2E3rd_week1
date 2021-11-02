@@ -1,2 +1,6 @@
+@import "~bootstrap/scss/functions"; /*bootstrap 套用變數的方法，有它我們才能正確套用自定義變數*/
+@import "./helpers/variables"; /*我們的自定義內容*/
+@import "~bootstrap/scss/bootstrap"; /*bootstrap 主套件*/
+
 @import "./variables";
-// $color-light-grey: #8FF;
+
