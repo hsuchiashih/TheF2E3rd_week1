@@ -7,6 +7,8 @@ import "bootstrap"; // 從nodeModule中載入Bootstrap
 import 'bootstrap/scss/bootstrap.scss'; // Import css file
 //引入Scss檔案
 import "@/assets/scss/style.scss";
+// import the styles
+import '@riophae/vue-treeselect/dist/vue-treeselect.css'
 
 Vue.config.productionTip = false
 

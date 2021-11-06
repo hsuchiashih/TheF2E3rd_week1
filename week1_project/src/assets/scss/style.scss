@@ -3,4 +3,9 @@
 @import "~bootstrap/scss/bootstrap"; /*bootstrap 主套件*/
 
 @import "./variables";
-
+@import "./base";
+@import "./nav";
+@import "./searchbar";
+@import "./popularCities";
+@import "./PopularActivities";
+@import "./PopularFoods";

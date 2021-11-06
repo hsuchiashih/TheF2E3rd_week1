@@ -1,0 +1,29 @@
+.activities_card {
+  // width: 522px;
+  height: 228px;
+  background-color: #FFF;
+}
+
+.activities_img_size {
+  width: 187px;
+  height: 196px;
+  .activities_img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.map_img_size {
+  width: 16px;
+  height: 19.56px;
+  .map_img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+.active_grid {
+  display: grid;
+  grid-row-gap: 21px;
+  grid-column-gap: 48px;
+  grid-template-columns: 1fr 1fr;
+}

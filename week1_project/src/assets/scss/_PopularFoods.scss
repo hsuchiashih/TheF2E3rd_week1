@@ -1,0 +1,20 @@
+.foods_grid {
+  display: grid;
+  grid-row-gap: 35px;
+  grid-column-gap: 9px;
+  grid-template-columns: repeat(auto-fill, 184px);
+}
+
+.foods_card {
+  height: 243px;
+  background-color: #FFF;
+}
+
+.food_img_size {
+  width: 182px;
+  height: 137px;
+  .food_img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

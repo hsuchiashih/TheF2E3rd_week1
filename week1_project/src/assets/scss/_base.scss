@@ -1,0 +1,19 @@
+html {
+  background-color: #F6F7FB;
+  font-size: 14px;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  line-height: inherit;
+  width: max-content;
+}
+
+button:after {
+  border: none;
+}

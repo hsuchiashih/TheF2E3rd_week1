@@ -1,0 +1,56 @@
+.nav_bg {
+  background-color: #FFF;
+}
+
+.nav_margin {
+  margin-top: 2.78rem;
+}
+.logo_size {
+  width: 7.07rem;
+  height: 4.07rem;
+  .logo_img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.link_icon_size {
+  width: 2rem;
+  height: 2rem;
+  &:hover {
+    width: 2.42rem;
+    height: 2.42rem;
+    transform-origin: bottom;
+  }
+  .link_icon {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.link_title_size {
+  width: 4rem;
+  height: 1.42rem;
+  .link_title {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.title{
+  font-size: 1rem;
+  line-height: 1.42rem;
+  text-decoration-line: underline;
+}
+
+.pink {
+  color: #FF1D6C;
+}
+
+.yellow {
+  color: #FFB72C;
+}
+
+.green {
+  color: #007350;
+}
