@@ -1,5 +1,6 @@
 <template>
-  <div class="nav_bg row justify-content-around align-items-end">
+<div class="container">
+  <div class="row justify-content-around align-items-end">
     <div class="col-6 nav_margin">
       <div class="logo_size">
         <img src="@/assets/image/Nav_img/logo.png" alt="" class="logo_img">  
@@ -40,6 +41,8 @@
       </ul>
     </div>
   </div>
+</div>
+  
 </template>
 
 <script>

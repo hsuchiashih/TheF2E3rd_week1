@@ -1,11 +1,13 @@
 <template>
   <div id="app">
-    <div class="container">
+    <div class="row nav_bg">
       <Nav/>
-      <SearchBar/>
-      <PopularCities/>
-      <PopularActivities/>
-      <PopularFoods/>
+    </div>
+    <SearchBar @getBaseDataFromSearchBar='appGetBaseData'/>
+    <div class="container">
+      <PopularCities class="mt-5"/>
+      <PopularActivities :itemData='baseData[0]'/>
+      <PopularFoods :itemData='baseData[1]'/>
     </div>
   </div>
 </template>
@@ -26,6 +28,17 @@ export default {
     PopularCities,
     PopularActivities,
     PopularFoods
+  },
+  data () {
+    return {
+      baseData: []
+    }
+  },
+  methods: {
+    appGetBaseData(val) {
+      this.baseData = val
+      console.log('appGetTestData',val)
+    }
   }
 }
 </script>
@@ -37,6 +50,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center; */
   background-color: #F6F7FB;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 1;
   /* margin-top: 60px; */
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="row searchbar_bg searchbar_bg_shadow d-flex justify-content-center align-items-center pr-5 pl-5 ">
+    <div class="row searchbar_bg d-flex justify-content-center align-items-center pr-5 pl-5 ">
     <div class="searchbar_img_size">
       <img src="@/assets/image/searchBar_img/BG_IMG.png" alt="" class="logo_img">
       <div class="welcome_icon_size">
@@ -9,94 +9,106 @@
         </div>
         <div class="d-flex align-items-center justify-content-between input_width mb-2">
           <input type="text" class="form-control" placeholder="">
-          <button class="search_button" type='submit'>
+          <button class="search_button" type='submit' @click='search'>
             <img src="@/assets/image/searchBar_img/search_icon.png" alt="" class="search_icon">
           </button>
         </div>
         <div class="row m-0 align-items-center justify-content-between">
-          <treeselect class="col-5 m-0" v-model="citySelect" :multiple="false" :options="cityOptions"/>
-          <treeselect class="col-5 m-0" v-model="areaSelect" :multiple="false" :options="areaOptions"/>
+          <treeselect class="col-5 m-0" v-model="typeSelect" :multiple="false" :options="typeOptions" placeholder="類別"/>
+          <treeselect class="col-5 m-0" v-model="citySelect" :multiple="false" :options="cityOptions" placeholder="不分縣市"/>
           <button class="place_button" type='submit'>
             <img src="@/assets/image/searchBar_img/place_icon.png" alt="" class="place_icon">
           </button>
-        </div>
-        
+        </div> 
       </div>
     </div>
-    <div role="tw-city-selector">123123</div>
   </div>
-</template>
 
-<script src="https://gist.github.com/vinta/079cb8d4da486f471365c31388ed1b85.js"></script>
+
+</template>
 
 <script>
 import Treeselect from '@riophae/vue-treeselect'
-import TwCitySelector from '../../node_modules/tw-city-selector/dist/tw-city-selector';
-import { area_data } from '../assets/js/utils/taiwan_area';
-
+import { apiBaseActivity, apiBaseFoods } from "../assets/js/utils/api"; 
 export default {
   components: { Treeselect },
 
   name: 'SearchBar',
-  mixins: [ area_data ],
   data () {
     return {
-       // define the default value
-        value: null,
-        // define options
-        options: [ {
-          id: 'a',
-          label: 'a',
-          children: [ {
-            id: 'aa',
-            label: 'aa',
-          }, {
-            id: 'ab',
-            label: 'ab',
-          } ],
-        }, {
-          id: 'b',
-          label: 'b',
-        }, {
-          id: 'c',
-          label: 'c',
-        } ],
-      
+      citys: {
+        Keelung: "基隆市",
+        Taipei: "臺北市",
+        NewTaipei: "新北市",
+        Taoyuan: "桃園市",
+        Hsinchu: "新竹市",
+        HsinchuCounty: "新竹縣",
+        MiaoliCounty: "苗栗縣",
+        Taichung: "臺中市",
+        ChanghuaCounty: "彰化縣",
+        NantouCounty: "南投縣",
+        YunlinCounty: "雲林縣",
+        Chiayi: "嘉義市",
+        ChiayiCounty: "嘉義縣",
+        Tainan: "臺南市",
+        Kaohsiung: "高雄市",
+        PingtungCounty: "屏東縣",
+        TaitungCounty: "臺東縣",
+        HualienCounty: "花蓮縣",
+        YilanCounty: "宜蘭縣",
+        PenghuCounty: "澎湖縣",
+        KinmenCounty: "金門縣",
+        LienchiangCounty: "連江縣",  
+      },
       cityOptions: [],
       citySelect: null,
-      areaOptions: [],
-      areaSelect: null,
-      reFormatAreaData: {}
+      typeOptions: [
+        {
+          id:'attractions',
+          label:'景點'
+        },
+        {
+          id:'actives',
+          label:'活動'
+        }
+      ],
+      typeSelect: null,
+      activityData: [],
+      foodsData: []
     }
   },
   mounted() {
-    for(let key in area_data) {
+    for(let key in this.citys) {
       this.cityOptions.push({
         id: `${key}`,
-        label: `${key}`
+        label: `${this.citys[key]}`
       })
     }
-
-    this.reFormatAreaData = Object.keys(area_data).reduce((pre, key) => {
-        area_data[key] = area_data[key].map(item => {
-          let Obj = {}
-          Obj.id = item
-          Obj.label = item
-          return Obj
-        })
-        return area_data
-    },{})
-    console.log(this.reFormatAreaData)
-    
-    // console.log('123',Object.entries(area_data))
-    // console.log(this.cityOptions)
+    this.getBaseData()
   },
-  watch:{
-    citySelect(val) {
-      if(val !== null) {
-        this.areaOptions = this.reFormatAreaData[val]
-        this.areaSelect = this.areaOptions[0]['id']
+  methods: {
+    async getBaseData() {
+      try {
+        this.activityData = await apiBaseActivity().then(res => {
+          return res.data
+        });
+        this.foodsData = await apiBaseFoods().then(res => {
+          return res.data
+        });
+      } catch (err) {
+        console.error(err);
       }
+      this.$emit('getBaseDataFromSearchBar', [this.activityData, this.foodsData])
+    },
+    activityAPI() {
+      apiBaseActivity().then(res => {
+        this.$emit('getTestData', res.data)
+      })
+      .catch(err=> {
+          console.log(err);
+      })
+    },
+    search() {
       
     }
   }

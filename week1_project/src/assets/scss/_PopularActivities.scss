@@ -27,3 +27,18 @@
   grid-column-gap: 48px;
   grid-template-columns: 1fr 1fr;
 }
+
+.text_overflow_ellipsis{
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text_overflow_ellipsis_location{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+   max-width: 88px;
+}
