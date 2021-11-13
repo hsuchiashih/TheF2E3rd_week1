@@ -1,6 +1,7 @@
 html {
   background-color: #F6F7FB;
   font-size: 14px;
+  font-family: 'Noto Sans TC';
 }
 
 button {
@@ -16,4 +17,17 @@ button {
 
 button:after {
   border: none;
+}
+
+.second_title {
+  font-weight: 700;
+  margin: 0;
+  font-size: 20px;
+}
+
+@media (min-width: 1200px) {
+  .col-lg-1-5 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
 }

@@ -1,8 +1,17 @@
 .searchbar_bg {
-  width: 1280px;
+  // max-width: 1065px;
   height: 536px ;
   background-color: #FFF;
   position: relative;
+
+  .search_img {
+    width: 97%;
+    height: 90%;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   &:before, &:after {
     content: '';

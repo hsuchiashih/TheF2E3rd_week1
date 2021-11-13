@@ -1,18 +1,51 @@
 .foods_grid {
+  // width: 100%;
   display: grid;
   grid-row-gap: 35px;
   grid-column-gap: 9px;
-  grid-template-columns: repeat(auto-fill, 184px);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .foods_card {
   height: 243px;
   background-color: #FFF;
+  position: relative;
+ 
+  &:before, &:after {
+    content: '';
+    width: 100%;
+    max-width: 100px;
+    position: absolute;
+    top: 50%;
+    bottom: 15px;
+    z-index: -1;
+    -webkit-box-shadow: 0 20px 20px #0D0B0C;
+    -moz-box-shadow: 0 20px 20px #0D0B0C;
+    box-shadow: 0 20px 10px #0D0B0C;
+    opacity: 0.3;
+  }
+  &:before{
+    left: 10px;
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg);
+    transform: rotate(-10deg); 
+  }
+  &:after {
+    right: 10px;
+    left: auto;
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
 }
 
 .food_img_size {
-  width: 155px;
-  height: 120px;
+  width: 176px;
+  height: 129px;
   overflow: hidden;
   position: relative;
   .food_img {

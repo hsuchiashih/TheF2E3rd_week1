@@ -3,8 +3,8 @@ import jsSHA from 'jssha';
 
 function getAuthorizationHeader() {
   //  填入自己 ID、KEY 開始
-  let AppID = '4ad9f73726a0409a9376afd2b59e59a7';
-  let AppKey = 'iR-j7mJI1CY924a-xfd6vhXZciM';
+  let AppID = 'b08bd5bac7454020a6cf8ac618face1d';
+  let AppKey = 'u6UomC7GzQ05LDrcW4bIwd0BRIg';
   //  填入自己 ID、KEY 結束
   let GMTString = new Date().toGMTString();
   let ShaObj = new jsSHA('SHA-1', 'TEXT');
@@ -27,9 +27,23 @@ const foodsRequest = axios.create({
   headers: getAuthorizationHeader()
 });
 // 搜尋相關的 api
-const searchRequest = axios.create({
-  baseURL: 'https://api/search/'
+const searchActivityRequest = axios.create({
+  baseURL: 'https://ptx.transportdata.tw/MOTC/v2/Tourism/Activity/',
+  headers: getAuthorizationHeader()
+});
+
+const searchScenicSpotRequest = axios.create({
+  baseURL: 'https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/',
+  headers: getAuthorizationHeader()
+});
+
+const searchFoodsRequest = axios.create({
+  baseURL: 'https://ptx.transportdata.tw/MOTC/v2/Tourism/Restaurant/',
+  headers: getAuthorizationHeader()
 });
 
 export const apiBaseActivity = () => activityRequest.get('?$top=4&$format=JSON');
 export const apiBaseFoods = () => foodsRequest.get('?$top=10&$format=JSON');
+export const apiSearchActivity = (url) => searchActivityRequest.get(url);
+export const apiSearchScenicSpot = (url) => searchScenicSpotRequest.get(url);
+export const apiSearchFoods = (url) => searchFoodsRequest.get(url);

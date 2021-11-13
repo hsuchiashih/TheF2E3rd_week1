@@ -16,11 +16,17 @@
     "jquery": "^3.6.0",
     "jssha": "^3.2.0",
     "node-sass": "^4.14.1",
+    "owl.carousel": "^2.3.4",
     "popper.js": "^1.16.1",
+    "swiper": "^7.2.0",
     "vue": "^2.5.2",
-    "vue-axios": "^3.4.0"
+    "vue-awesome-swiper": "^3.1.3",
+    "vue-axios": "^3.4.0",
+    "vue-final-modal": "^2.4.1",
+    "vue-router": "^3.5.3"
   },
   "devDependencies": {
+    "@vue/cli-plugin-router": "^4.5.15",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
