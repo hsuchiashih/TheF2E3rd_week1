@@ -9,5 +9,7 @@ module.exports = {
             ]
         }
     },
-    publicPath: './'
+    publicPath: process.env.NODE_ENV === 'production'
+      ? '/TheF2E3rd_week1/week1_project'
+      : '/'
 }
