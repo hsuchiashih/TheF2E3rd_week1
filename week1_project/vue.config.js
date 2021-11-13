@@ -9,7 +9,5 @@ module.exports = {
             ]
         }
     },
-    publicPath: process.env.NODE_ENV === 'production'
-      ? '/TheF2E3rd_week1/'
-      : '/'
+    publicPath: './'
 }
